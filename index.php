@@ -8,7 +8,7 @@
 
 require_once ('controllers/controller.php');
 
-$mvc = new MvcController();
-$mvc -> pagina();
+  $mvc = new MvcController();
+  $mvc -> pagina();
 
 ?>

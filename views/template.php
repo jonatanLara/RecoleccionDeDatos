@@ -12,6 +12,15 @@
     <title>@</title>
 </head>
 <body>
+  <div id="drop_file_zone" ondrop="upload_file(event)" ondragover="return false" class="flex center">
+      <div id="drag_upload_file">
+          <p>Drop file here</p>
+          <p>or</p>
+          <p><input type="button" value="Select File" onclick="file_explorer();" /></p>
+          <input type="file" id="selectfile" />
+      </div>
+  </div>
+  <div class="img-content"></div>
   <?php
     //index.php
 
@@ -39,5 +48,41 @@
    </table>
    <!-- JavaScript Bundle with Popper -->
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+   <script type="text/javascript">
+    var fileobj;
+    function upload_file(e) {
+      e.preventDefault();
+      fileobj = e.dataTransfer.files[0];
+      ajax_file_upload(fileobj);
+      console.log(fileobj)
+    }
+
+    function file_explorer() {
+      document.getElementById('selectfile').click();
+      document.getElementById('selectfile').onchange = function() {
+          fileobj = document.getElementById('selectfile').files[0];
+          ajax_file_upload(fileobj);
+          console.log(fileobj)
+      };
+    }
+
+    function ajax_file_upload(file_obj) {
+      if(file_obj != undefined) {
+          var form_data = new FormData();
+          form_data.append('file', file_obj);
+          var xhttp = new XMLHttpRequest();
+          xhttp.open("POST", "ajax.php", true);
+          xhttp.onload = function(event) {
+              oOutput = document.querySelector('.img-content');
+              if (xhttp.status == 200) {
+                  oOutput.innerHTML = "<img src='"+ this.responseText +"' alt='The Image' />";
+              } else {
+                  oOutput.innerHTML = "Error " + xhttp.status + " occurred when trying to upload your file.";
+              }
+          }
+          xhttp.send(form_data);
+      }
+    }
+   </script>
 </body>
 </html>
