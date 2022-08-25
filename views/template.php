@@ -19,70 +19,32 @@
           <p><input type="button" value="Select File" onclick="file_explorer();" /></p>
           <input type="file" id="selectfile" />
       </div>
-  </div>
-  <div class="img-content"></div>
-  <?php
-    //index.php
-
-    //ubicacion csv
-    define('CSV', 'T1_07043_0EG_20220617.csv');
-
-    //leer csv
-    $readCsv = array_map('str_getcsv', file(CSV));
-  ?>
-  <table border="1" class="table table-striped">
-   <?php
-   //recorremos filas del csv
-   foreach ($readCsv as $itemCsv) {
-     echo '<tr>';
-     //recorremos celdas del csv
-      foreach ($itemCsv as $elementoItemCSV) {
-       echo '<td>';
-       //mostramos la celda
-       echo utf8_encode($elementoItemCSV);
-       echo '</td>';
-      }
-      echo '</tr>';
-     }
+    </div>
+    <?php
+        $cargarArchivo = new MvcController();
+        $cargarArchivo ->cargarCSV();
     ?>
-   </table>
+  </div>
+  </div>
+
+
    <!-- JavaScript Bundle with Popper -->
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+   <script src="js/jquery-2.1.4.min.js"></script>
    <script type="text/javascript">
-    var fileobj;
-    function upload_file(e) {
-      e.preventDefault();
-      fileobj = e.dataTransfer.files[0];
-      ajax_file_upload(fileobj);
-      console.log(fileobj)
-    }
+      $(document).ready(function(){
+        $("#fileUpload").change(function(){
+        var file = this.files[0];
+            var fr=new FileReader();
+            fr.onload=function(data){
+                //$("#output").html(data.target.result);+
+                console.log(data.target.result);
+            }
+            fr.readAsText(file);
+        });
+      })
 
-    function file_explorer() {
-      document.getElementById('selectfile').click();
-      document.getElementById('selectfile').onchange = function() {
-          fileobj = document.getElementById('selectfile').files[0];
-          ajax_file_upload(fileobj);
-          console.log(fileobj)
-      };
-    }
 
-    function ajax_file_upload(file_obj) {
-      if(file_obj != undefined) {
-          var form_data = new FormData();
-          form_data.append('file', file_obj);
-          var xhttp = new XMLHttpRequest();
-          xhttp.open("POST", "ajax.php", true);
-          xhttp.onload = function(event) {
-              oOutput = document.querySelector('.img-content');
-              if (xhttp.status == 200) {
-                  oOutput.innerHTML = "<img src='"+ this.responseText +"' alt='The Image' />";
-              } else {
-                  oOutput.innerHTML = "Error " + xhttp.status + " occurred when trying to upload your file.";
-              }
-          }
-          xhttp.send(form_data);
-      }
-    }
    </script>
 </body>
 </html>

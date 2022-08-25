@@ -9,15 +9,15 @@ require_once "conexion.php";
 
 class Datos extends Conexion{
     #vista Galeria taler 3D
-    public static function vistaModel(){
+    public static function vistaDatosModel(){
         $stmt = Conexion::conectar()->prepare("SELECT idgaleria, imagen, texto FROM galeria WHERE categoria_id = 1");
         $stmt->execute();
         return $stmt->fetchAll();
         $stmt->close();
     }
     #Registro Talent Land
-    public static function RegirstroModel($datosModels){
-        $stmt = Conexion::conectar()->prepare("INSERT INTO talent(nombre, matricula, correo, telefono, licenciatura, seguro, saldo) 
+    public static function agrergarDatoModel($datosModels){
+        $stmt = Conexion::conectar()->prepare("INSERT INTO talent(nombre, matricula, correo, telefono, licenciatura, seguro, saldo)
         VALUES (:nombre,:matricula,:correo,:telefono,:licenciatura,:seguro,:saldo)");
         $saldo = 0;
         #bindParam vincula
