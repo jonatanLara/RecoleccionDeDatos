@@ -12,12 +12,19 @@
     <title>@</title>
 </head>
 <body>
-  <div id="drop_file_zone" ondrop="upload_file(event)" ondragover="return false" class="flex center">
-      <div id="drag_upload_file">
-          <p>Drop file here</p>
-          <p>or</p>
-          <p><input type="button" value="Select File" onclick="file_explorer();" /></p>
-          <input type="file" id="selectfile" />
+
+  <div class="container">
+    <div class="col-12">
+    <div class="card">
+      <div class="card-header">Completa el formulario</div>
+      <div class="card-body">
+        <form role="form" method="post">
+          <div class="mb-3">
+            <label for="archivo">Selecciona un archivo <code>.csv</code></label>
+            <input type="file" id="fileUpload" class="form-control" name="archivocsv_nombre" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" required>
+          </div>
+          <button class="btn btn-success" type="submit">Importar</button>
+        </form>
       </div>
     </div>
     <?php
