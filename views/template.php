@@ -6,16 +6,16 @@
           content="width=device-width, user-scalable=no,
           initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="google-site-verification" content="NUnkqvFCshDhqBSQ5Jcsr0mW_L_KtAjm_qlE3PK1IF8" />
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="css/style.css">
     <title>@</title>
 </head>
 <body>
+  <?php include_once ('views/login.php')  ?>
   <div class="container">
     <div class="col-12">
-    <div class="card">
+    <!-- <div class="card">
       <div class="card-header">Completa el formulario</div>
       <div class="card-body">
         <form  method="post" action="" enctype="multipart/form-data">
@@ -26,7 +26,7 @@
           <button class="btn btn-success" id="submit-file" type="submit">Importar</button>
         </form>
       </div>
-    </div>
+    </div> -->
     <?php
       //  $cargarArchivo = new MvcController();
       //  $cargarArchivo ->cargarCSV();

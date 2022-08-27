@@ -1,0 +1,43 @@
+//colores de nuestro tema
+$COLOR-PRIMARIO: #691c32;
+$COLOR-PRIMARIO_: #A1274A;
+$COLOR-SECUNDARIO: #BC955C;
+$COLOR-SECUNDARIO_: #DDC9A3;
+$COLOR-BLANCO: #FFF;
+//
+*{
+  font-family: "Montserrat";
+  font-size: 14px;
+}
+.bg-primario{background: $COLOR-PRIMARIO;color:$COLOR-BLANCO}
+.bg-primario-hover{
+  &:hover{
+    background: $COLOR-SECUNDARIO;color:$COLOR-BLANCO
+  }
+}
+.form-control-lg {
+  font-size: 14px;
+}
+.flex{
+  display: flex;
+}
+.center{
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+.divider:after,
+.divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eee;
+}
+.h-custom {
+  height: calc(100% - 73px);
+}
+@media (max-width: 450px) {
+  .h-custom {
+    height: 100%;
+  }
+}

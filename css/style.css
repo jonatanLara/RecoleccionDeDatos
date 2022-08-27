@@ -1,29 +1,38 @@
+* {
+  font-family: "Montserrat";
+  font-size: 14px; }
 
+.bg-primario {
+  background: #691c32;
+  color: #FFF; }
 
-.flex{
-  display: flex;
-}
-.center{
+.bg-primario-hover:hover {
+  background: #BC955C;
+  color: #FFF; }
+
+.form-control-lg {
+  font-size: 14px; }
+
+.flex {
+  display: flex; }
+
+.center {
   justify-content: center;
   align-items: center;
-  align-content: center;
-}
-#drop_file_zone {
-    background-color: #DDC9A3;
-    border: #BC955C 5px dashed;
-    width: 290px;
-    height: 200px;
-    padding: 8px;
-    font-size: 18px;
-    color: #691C32;
-    font-weight:bold;
-}
-#drag_upload_file {
-  width:50%;
-}
-#drag_upload_file p {
-  text-align: center;
-}
-#drag_upload_file #selectfile {
-  display: none;
-}
+  align-content: center; }
+
+.divider:after,
+.divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eee; }
+
+.h-custom {
+  height: calc(100% - 73px); }
+
+@media (max-width: 450px) {
+  .h-custom {
+    height: 100%; } }
+
+/*# sourceMappingURL=style.css.map */
