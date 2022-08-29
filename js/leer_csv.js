@@ -1,44 +1,29 @@
-$('#submit-file').on("click",function(e){
-	e.preventDefault();
-	$('#fileUpload').parse({
-		config: {
-			delimiter: "auto",
-			complete: displayHTMLTable,
-		},
-		before: function(file, inputElem)
-		{
-			//console.log("Parsing file...", file);
-		},
-		error: function(err, file)
-		{
-			//console.log("ERROR:", err, file);
-		},
-		complete: function()
-		{
-			//console.log("Done with all files");
-		}
-	});
-});
-  function displayHTMLTable(results) {
-    var table = "<table class='table'>";
-    var data = results.data;
+const x = document.querySelector("input");
+x.addEventListener("change",()=>{
+	//alert("");
+	const fr = new FileReader();
+	fr.onloadend = e =>{
+		let r = fr.result.split("\n").map(e=>{
+			return e.split(",");
+		})
+		r.forEach(e=>{
+			let m = e.map(e=>{
+				return `<td>${e}</td>`
+			}).join("")
 
-    for (i = 0; i < data.length; i++) {
-        table += "<tr>";
-        var row = data[i];
-        var cells = row.join(",").split(",");
+			const ce = document.createElement("tr");
+			ce.innerHTML = m;
+			if(ce.innerHTML !== ""){
+				document.querySelector("table").append(ce);
+			}
+		});
+	}
+	fr.readAsText(x.files[0])
+})
 
-        for (j = 0; j < cells.length; j++) {
-            table += "< td > ";
-            table += cells[j];
-            table += "</th>";
-        }
-        table += "</tr>";
-    }
-    table += "</table>";
-
-    $("#parsed_csv_list").html(table);
-  }
+function darFormato(cadena){
+	let aMayus = cadena.replace(/[AAAA]/g,'A');
+}
 // $.ajax({
 //     url: 'T1_07043_0EG_20220617.csv',
 //     dataType: 'text',
