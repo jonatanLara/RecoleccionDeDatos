@@ -1,13 +1,16 @@
 //colores de nuestro tema
-$COLOR-PRIMARIO: #691c32;
-$COLOR-PRIMARIO_: #A1274A;
-$COLOR-SECUNDARIO: #BC955C;
-$COLOR-SECUNDARIO_: #DDC9A3;
+$COLOR-PRIMARIO: #621132;
+$COLOR-PRIMARIO_: #9D2449;
+$COLOR-SECUNDARIO: #B38E5D;
+$COLOR-SECUNDARIO_: #D4C19C;
 $COLOR-BLANCO: #FFF;
+$COLOR-TERCIARIO: #4E232E;
+$COLOR-TERCIARIO_: #65242A;
 //
 *{
   font-family: "Montserrat";
   font-size: 14px;
+  box-sizing: border-box;
 }
 .bg-primario{background: $COLOR-PRIMARIO;color:$COLOR-BLANCO}
 .bg-primario-hover{
@@ -17,14 +20,6 @@ $COLOR-BLANCO: #FFF;
 }
 .form-control-lg {
   font-size: 14px;
-}
-.flex{
-  display: flex;
-}
-.center{
-  justify-content: center;
-  align-items: center;
-  align-content: center;
 }
 .divider:after,
 .divider:before {
@@ -40,4 +35,19 @@ $COLOR-BLANCO: #FFF;
   .h-custom {
     height: 100%;
   }
+}
+.generales{
+  border: 3px #BC955C solid;
+  border-radius: 8px;
+  border-spacing: 3px 3px;
+}
+.col{
+  border: 1px #BC955C solid;
+  border-radius: 4px;
+  background: #DDC9A3;
+  /* padding: 3px; */
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+  color: #691C32;
 }

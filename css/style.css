@@ -1,25 +1,18 @@
 * {
   font-family: "Montserrat";
-  font-size: 14px; }
+  font-size: 14px;
+  box-sizing: border-box; }
 
 .bg-primario {
-  background: #691c32;
+  background: #621132;
   color: #FFF; }
 
 .bg-primario-hover:hover {
-  background: #BC955C;
+  background: #B38E5D;
   color: #FFF; }
 
 .form-control-lg {
   font-size: 14px; }
-
-.flex {
-  display: flex; }
-
-.center {
-  justify-content: center;
-  align-items: center;
-  align-content: center; }
 
 .divider:after,
 .divider:before {
@@ -34,5 +27,19 @@
 @media (max-width: 450px) {
   .h-custom {
     height: 100%; } }
+.generales {
+  border: 3px #BC955C solid;
+  border-radius: 8px;
+  border-spacing: 3px 3px; }
+
+.col {
+  border: 1px #BC955C solid;
+  border-radius: 4px;
+  background: #DDC9A3;
+  /* padding: 3px; */
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+  color: #691C32; }
 
 /*# sourceMappingURL=style.css.map */

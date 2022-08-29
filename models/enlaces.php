@@ -9,18 +9,17 @@
 class Paginas
 {
 
-    public static function enlacesPaginasModel($enlacesModel)
-    {
+    public static function enlacesPaginasModel($enlacesModel){
         #lista blanca
-        if ($enlacesModel == "inicio") {
+        if ( $enlacesModel == "inicio") {
 
             $module = "views/modules/" . $enlacesModel . ".php";
         } #lista por defecto
-        else if ($enlacesModel == 'index') {
-            $module = "views/modules/index.php";
+        else if ($enlacesModel == "index") {
+            $module = "views/modules/login.php";
         } #lista negra
         else {
-            $module = "views/modules/index.php";
+            $module = "views/modules/login.php";
         }
 
         return $module;
@@ -28,4 +27,3 @@ class Paginas
     }
 
 }
-

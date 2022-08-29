@@ -12,33 +12,20 @@
     <title>@</title>
 </head>
 <body>
-  <?php   ?>
+  <?php $mvc = new MvcController(); $mvc -> enlacesPaginasController(); ?>
   <div class="container">
     <div class="col-12">
-    <div class="card">
-      <div class="card-header">Completa el formulario</div>
-      <div class="card-body">
-        <form  method="post">
-          <div class="mb-3">
-            <label for="archivo">Selecciona un archivo <code>.csv</code></label>
-            <input type="file" id="fileUpload" class="form-control" name="archivocsv_nombre" required>
-          </div>
-          <button class="btn btn-success" id="submit-file" type="submit">Importar</button>
-        </form>
-      </div>
-    </div>
+
     <?php
       //  $cargarArchivo = new MvcController();
       //  $cargarArchivo ->cargarCSV();
     ?>
     <div id="output"></div>
-    <table id="results"></table>
-   </div>
   </div>
    <!-- JavaScript Bundle with Popper -->
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
    <script src="js/jquery-2.1.4.min.js"></script>
-   <script src="js/leer_csv.js"></script>
+   
    <script type="text/javascript">
        // function parseResult(result) {
        //     var resultArray = [];
@@ -53,18 +40,18 @@
        // }
 
       $(document).ready(function(){
-        $("#fileUpload").change(function(){
-        var file = this.files[0];
-        console.log(file);
-            var fr=new FileReader();
-            fr.onload=function(data){
-              var depurado = parseResult(data.target.result);
-              console.log(depurado);
-                $("#output").html(depurado);
-                //console.log(data.target.result);
-            }
-            fr.readAsText(file);
-        });
+        // $("#fileUpload").change(function(){
+        // var file = this.files[0];
+        // console.log(file);
+        //     var fr=new FileReader();
+        //     fr.onload=function(data){
+        //       var depurado = parseResult(data.target.result);
+        //       console.log(depurado);
+        //         $("#output").html(depurado);
+        //         //console.log(data.target.result);
+        //     }
+        //     fr.readAsText(file);
+        // });
       })
    </script>
 </body>
