@@ -28,18 +28,31 @@
   .h-custom {
     height: 100%; } }
 .generales {
-  border: 3px #BC955C solid;
+  border: 3px #B38E5D solid;
   border-radius: 8px;
-  border-spacing: 3px 3px; }
+  border-spacing: 3px 3px;
+  caption-side: bottom;
+  border-collapse: inherit;
+  width: 100%; }
+  .generales > :not(caption) > * > * {
+    padding: 0.5rem 0.5rem;
+    border-bottom-width: 1px; }
 
-.col {
-  border: 1px #BC955C solid;
+.col1 {
+  border: 1px #B38E5D solid;
   border-radius: 4px;
-  background: #DDC9A3;
-  /* padding: 3px; */
-  font-size: 10px;
+  background: #D4C19C;
+  padding: 0.5rem 0.5rem;
+  font-size: 12px;
   font-weight: bold;
   text-align: center;
-  color: #691C32; }
+  color: #621132; }
+
+.col2 {
+  background: #FFF;
+  color: #621132; }
+
+.navbar-light .navbar-nav .nav-link {
+  color: #621132; }
 
 /*# sourceMappingURL=style.css.map */

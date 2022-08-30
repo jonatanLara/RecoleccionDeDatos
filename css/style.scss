@@ -37,17 +37,31 @@ $COLOR-TERCIARIO_: #65242A;
   }
 }
 .generales{
-  border: 3px #BC955C solid;
+  border: 3px $COLOR-SECUNDARIO solid;
   border-radius: 8px;
   border-spacing: 3px 3px;
+  caption-side: bottom;
+  border-collapse: inherit;
+  width: 100%;
+  >:not(caption)>*>* {
+    padding: 0.5rem 0.5rem;
+    border-bottom-width: 1px;
 }
-.col{
-  border: 1px #BC955C solid;
+}
+.col1{
+  border: 1px $COLOR-SECUNDARIO solid;
   border-radius: 4px;
-  background: #DDC9A3;
-  /* padding: 3px; */
-  font-size: 10px;
+  background: $COLOR-SECUNDARIO_;
+  padding: 0.5rem 0.5rem;
+  font-size: 12px;
   font-weight: bold;
   text-align: center;
-  color: #691C32;
+  color: $COLOR-PRIMARIO;
+}
+.col2{
+  background: $COLOR-BLANCO;
+  color: $COLOR-PRIMARIO;
+}
+.navbar-light .navbar-nav .nav-link {
+  color: $COLOR-PRIMARIO;
 }

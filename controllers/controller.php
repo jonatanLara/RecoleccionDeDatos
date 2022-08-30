@@ -6,6 +6,7 @@
  * Time: 07:36 PM
  */
 class MvcController{
+
     #bloque de llamar a la plantilla
     public static function pagina(){
         include_once  'views/template.php';
@@ -14,6 +15,7 @@ class MvcController{
       $var = "estamos dentro de una funcion";
       json_encode($var);
     }
+
     public static function enlacesPaginasController(){
       #elimnar warning
       ##ini_set('display_errors','Off');
@@ -28,12 +30,14 @@ class MvcController{
 
     public static function cargarCSV(){
       $row = 1;
+      $numCeldas = 0;
+      $numColum = 0;
       if(isset($_FILES['dataCliente'])) { // si el input archivocsv_nombre tiene datos
 
         //input nombre del archivo
         $archivoCSV  = $_FILES['dataCliente']['tmp_name'];
         if (($handle = fopen($archivoCSV, "r")) !== FALSE) {
-            echo '<table  class="table table-striped generales">';
+            echo '<table  class="generales">';
             while (($data = fgetcsv($handle, 6000, ";")) !== FALSE) {
                 $num = count($data);
                 if ($row == 1) {
@@ -50,12 +54,16 @@ class MvcController{
                     if ($row == 1) {
                         $cells = explode(",",$value);
                         foreach ($cells as $cell) {
-                            echo '<th class="col">'.utf8_encode($cell).'</th>'; // encabezados
+                            echo '<th class="col1">'.utf8_encode($cell).'</th>'; // encabezados
+
                         }
                     }else{
                       $cells2 = explode(",", $value);
                         foreach ($cells2 as $cell) {
-                            echo '<td>'.utf8_encode($cell).'</td>';// celdas
+                            $numCeldas++;
+                            echo '<td class="col2">'.utf8_encode($cell).' ('.$numCeldas.')</td>' ;// celdas
+                            $numColum = count($cells2);
+
                         }
                     }
                 }
@@ -67,6 +75,7 @@ class MvcController{
                 $row++;
             }
             echo '</tbody></table>';
+            echo 'Número de filas: '.$numCeldas/$numColum.' Numeros de datos en total: '.$numCeldas;
             fclose($handle);
         }
         }else{// error al cargar el archivo

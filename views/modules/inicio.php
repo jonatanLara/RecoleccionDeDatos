@@ -1,3 +1,4 @@
+<?php include_once  'views/modules/header.php'; ?>
 <section class="vh-100">
   <div class="container-fluid h-custom">
     <div class="card">
