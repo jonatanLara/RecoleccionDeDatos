@@ -1,0 +1,30 @@
+Creación de abreviaturas de la base de datos
+
+Base de Datos: bd_tren_maya
+Tablas: Abreviamos la palabra tren maya -> tm_
+Columnas: Abreviamos el nombre de la tabla seleccionando 
+las iniciales en su posición [1][3][6] ejemplo; persona -> pro
+
+ejemplo final:
+bd_tm_pro // base de datos_tren maya_persona 
+
+Creación de matrículas:
+
+Salvamento Arqueológico Tren maya
+
+8 Dígitos
+
+SA22001 o TM22001 o DCA22001
+DSA = Dirección de Salvamento Arqueologico
+SA = Salvamento Arqueológico
+TM = Tren Maya
+22 = Año
+001 = Número consecutivo
+
+
+// consulta TABLA bd_tm_pro
+SELECT bd_tm_pro_nombre,bd_tm_pro_apellido_p,bd_tm_pro_apellido_m,bd_tm_pro_edad,
+bd_tm_pro_genero,bd_tm_pro_origen,bd_tm_pro_matricula,bd_tm_pro_correo,bd_tm_pro_telefono,
+bd_tm_uur_usuario, bd_tm_ett_estatus  FROM bd_tm_pro 
+INNER JOIN bd_tm_uur ON bd_tm_pro.bd_tm_pro_id_usuario = bd_tm_uur.bd_tm_uur_id 
+INNER JOIN bd_tm_ett ON bd_tm_pro.bd_tm_pro_id_estatus = bd_tm_ett.bd_tm_ett_id
