@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 // const x = document.querySelector("input");
 // x.addEventListener("change",()=>{
 // 	//alert("");
@@ -21,6 +22,38 @@
 // 	}
 // 	fr.readAsText(x.files[0])
 // })
+=======
+const x = document.querySelector("input");
+x.addEventListener("change",()=>{
+	//alert("");
+	const fr = new FileReader();
+	fr.onloadend = e =>{
+		let r = fr.result.split("\n").map(e=>{
+			return e.split(",");
+		})
+		r.forEach(e=>{
+			let m = e.map(e=>{
+				return `<td>${e}</td>`
+			}).join("")
+
+			const ce = document.createElement("tr");
+			ce.innerHTML = m;
+			if(ce.innerHTML !== ""){
+				document.querySelector("table").append(ce);
+			}
+		});
+	}
+	fr.readAsText(x.files[0])
+})
+
+function darFormato(cadena){
+	let aMayus = cadena.replace(/[AAAA]/g,'A')
+}
+// $.ajax({
+//     url: 'T1_07043_0EG_20220617.csv',
+//     dataType: 'text',
+// }).done(successFunction);
+>>>>>>> Stashed changes
 //
 // function darFormato(cadena){
 // 	let aMayus = cadena.replace(/[AAAA]/g,'A');
