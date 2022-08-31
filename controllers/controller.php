@@ -27,6 +27,22 @@ class MvcController{
       $respuesta = Paginas::enlacesPaginasModel($enlaces);
       include_once $respuesta;
     }
+    public static function loginController(){
+      if (isset($_POST["cl_matricula"])) {
+        $datosController = array("clave_matricula"=>$_POST["cl_matricula"], "password" => $_POST["cl_passw"]);
+        $respuesta = Datos::loginPortalModel($datosController,"bd_tm_pro");
+        //var_dump($respuesta);
+        if($respuesta["bd_tm_pro_matricula"]==$_POST["cl_matricula"]&& $respuesta["bd_tm_pro_pass"]== $_POST["cl_passw"]){
+          /*crear sessiones*/
+          session_start();
+          $_SESSION["validar"] = true;
+
+          echo "<script>window.location='index.php?action=inicio'</script>";
+        }else{
+          echo "<script>window.location='index.php?action=error'</script>";
+        }
+      }
+    }
 
     public static function cargarCSV(){
       $row = 1;
@@ -75,7 +91,7 @@ class MvcController{
                 $row++;
             }
             echo '</tbody></table>';
-            echo 'Número de filas: '.$numCeldas/$numColum.' Numeros de datos en total: '.$numCeldas;
+            echo 'Número de filas: '.$numCeldas/$numColum.' Números de datos en total: '.$numCeldas;
             fclose($handle);
         }
         }else{// error al cargar el archivo

@@ -1,3 +1,10 @@
+<?php
+  session_start();
+  if(!$_SESSION["validar"]){
+    echo "<script>window.location='index.php'</script>";
+    exit();
+  }
+?>
 <?php include_once  'views/modules/header.php'; ?>
 <section class="vh-100">
   <div class="container-fluid h-custom">

@@ -20,7 +20,7 @@
               <a class="nav-link mx-2" href="#!"><i class="fas fa-heart pe-2"></i>Trips</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link mx-2" href="#!"><i class="fas fa-sign-out-alt pe-2"></i>Cerrar Sesión</a>
+              <a class="nav-link mx-2" href="index.php?action=destroy"><i class="fas fa-sign-out-alt pe-2"></i>Cerrar Sesión</a>
             </li>
           </ul>
         </div>

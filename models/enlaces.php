@@ -11,7 +11,7 @@ class Paginas
 
     public static function enlacesPaginasModel($enlacesModel){
         #lista blanca
-        if ( $enlacesModel == "inicio") {
+        if ( $enlacesModel == "inicio" || $enlacesModel =="destroy") {
 
             $module = "views/modules/" . $enlacesModel . ".php";
         } #lista por defecto
