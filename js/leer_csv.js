@@ -1,4 +1,4 @@
-<<<<<<< Updated upstream
+
 // const x = document.querySelector("input");
 // x.addEventListener("change",()=>{
 // 	//alert("");
@@ -22,7 +22,7 @@
 // 	}
 // 	fr.readAsText(x.files[0])
 // })
-=======
+
 const x = document.querySelector("input");
 x.addEventListener("change",()=>{
 	//alert("");
@@ -47,13 +47,13 @@ x.addEventListener("change",()=>{
 })
 
 function darFormato(cadena){
-	let aMayus = cadena.replace(/[AAAA]/g,'A')
+	let aMayus = cadena.replace(/[AAAA]/g,'A');
 }
 // $.ajax({
 //     url: 'T1_07043_0EG_20220617.csv',
 //     dataType: 'text',
 // }).done(successFunction);
->>>>>>> Stashed changes
+
 //
 // function darFormato(cadena){
 // 	let aMayus = cadena.replace(/[AAAA]/g,'A');
