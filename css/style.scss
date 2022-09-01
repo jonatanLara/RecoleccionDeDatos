@@ -12,6 +12,9 @@ $COLOR-TERCIARIO_: #65242A;
   font-size: 14px;
   box-sizing: border-box;
 }
+body{
+  background: whitesmoke;
+}
 .bg-primario{background: $COLOR-PRIMARIO;color:$COLOR-BLANCO}
 .bg-primario-hover{
   &:hover{
@@ -64,4 +67,19 @@ $COLOR-TERCIARIO_: #65242A;
 }
 .navbar-light .navbar-nav .nav-link {
   color: $COLOR-PRIMARIO;
+}
+.caja{
+  background: $COLOR-BLANCO;
+  border-radius: 7px;
+  padding: 8px;
+  margin: 10px;
+  box-shadow: 0 0 4px 1px rgba(2,2,2,0.1);
+}
+.search{
+  top:6px;
+  left:10px;
+}
+
+.green{
+    color:green;
 }

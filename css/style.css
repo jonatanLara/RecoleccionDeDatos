@@ -3,6 +3,9 @@
   font-size: 14px;
   box-sizing: border-box; }
 
+body {
+  background: whitesmoke; }
+
 .bg-primario {
   background: #621132;
   color: #FFF; }
@@ -54,5 +57,19 @@
 
 .navbar-light .navbar-nav .nav-link {
   color: #621132; }
+
+.caja {
+  background: #FFF;
+  border-radius: 7px;
+  padding: 8px;
+  margin: 10px;
+  box-shadow: 0 0 4px 1px rgba(2, 2, 2, 0.1); }
+
+.search {
+  top: 6px;
+  left: 10px; }
+
+.green {
+  color: green; }
 
 /*# sourceMappingURL=style.css.map */

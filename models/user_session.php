@@ -3,6 +3,7 @@ class UserSession{
   public function __construct(){
     session_start();
   }
+  // seccion actual
   public function setCurrentUser($user){
     $_SESSION['user'] = $user;
   }
