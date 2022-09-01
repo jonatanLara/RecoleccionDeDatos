@@ -1,3 +1,15 @@
+<?php
+  $userSession = new userSession();
+  if (isset($_SESSION['validar'])) {
+    // code...
+    echo "hay session iniciada";
+  } else if(isset($_POST['username'])&& isset($_POST['pass'])){
+    echo "validacion de login";
+  }else{
+     echo "Estoy login, no hay nada actualmente";
+     //echo "<script>window.location='index.php'</script>";
+  }
+?>
 <!doctype html>
 <html lang="es">
 <head>
@@ -12,6 +24,7 @@
     <title>@</title>
 </head>
 <body>
+
   <?php $mvc = new MvcController(); $mvc -> enlacesPaginasController(); ?>
   <div class="container">
   </div>

@@ -1,10 +1,11 @@
 <?php
-  session_start();
-  if(!$_SESSION["validar"]){
-    echo "<script>window.location='index.php'</script>";
-    exit();
-  }
+  // session_start();
+  // if(!$_SESSION["validar"]){// si validar es igual a falso
+  //   echo "<script>window.location='index.php'</script>"; // se le redirige a la persona al login
+  //   exit();
+  // }
 ?>
+
 <?php include_once  'views/modules/header.php'; ?>
 <section class="vh-100">
   <div class="container-fluid h-custom">
