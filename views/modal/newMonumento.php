@@ -33,15 +33,6 @@
                       </select>
                       <label for="SelectArqProsp">Selecciona el ID Arq Prosp</label>
                     </div>
-                    <div class="form-floating mb-3">
-                      <select class="form-select" id="SelectArqExc" aria-label="Floating label select example">
-                        <option selected>Abrir este menú de selección</option>
-                        <option value="1">211</option>
-                        <option value="2">219</option>
-                        <option value="3">222</option>
-                      </select>
-                      <label for="SelectArqExc">Selecciona el ID Arq Ex</label>
-                    </div>
                 </form>
             </div>
 
@@ -53,36 +44,25 @@
         </div>
 
         <script type="text/javascript">
+        function comprobarHora(){
+          var hoy = new Date();
+          var fecha = hoy.getDate() + '/' + ( hoy.getMonth() + 1 ) + '/' + hoy.getFullYear();
+          var hora = hoy.getHours() + ':' + hoy.getMinutes() + ':' + hoy.getSeconds();
+          var fechaYHora = fecha + ' ' + hora;
+          console.log(fechaYHora);
+        }
           function submitFormMonumento(){
             if ($('#SelectTramo').val().trim() === '' || $('#SelectArqProsp').val().trim() === '' || $('#SelectArqExc').val().trim() === '') {
                 console.log('Debe seleccionar una opción');
+
                 return false;
               }
               else
               {
                 // documentacion: https://programacion.net/articulo/formulario_modal_en_bootstrap_con_ajax_y_php_1786
                 console.log("Clave de Monumento: " + $("#SelectTramo option:selected").text() +"_"+ $("#SelectArqProsp option:selected").text() +"_"+ $("#SelectArqExc option:selected").text());
-                $.ajax({
-                      type:'POST',
-                      url:'submit_form.php',
-                      data:'contactFrmSubmit=1&name='+name+'&email='+email+'&message='+message,
-                      beforeSend: function () {
-                          $('.submitBtn').attr("disabled","disabled");
-                          $('.modal-body').css('opacity', '.5');
-                      },
-                      success:function(msg){
-                          if(msg == 'ok'){
-                              $('#inputName').val('');
-                              $('#inputEmail').val('');
-                              $('#inputMessage').val('');
-                              $('.statusMsg').html('<span style="color:green;">Thanks for contacting us, we'll get back to you soon.</p>');
-                          }else{
-                              $('.statusMsg').html('<span style="color:red;">Some problem occurred, please try again.</span>');
-                          }
-                          $('.submitBtn').removeAttr("disabled");
-                          $('.modal-body').css('opacity', '');
-                      }
-                  });
+                comprobarHora();
+
               }
 
           }

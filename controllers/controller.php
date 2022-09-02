@@ -5,6 +5,7 @@
  * Date: 21/10/2018
  * Time: 07:36 PM
  */
+
 class MvcController{
 
     #bloque de llamar a la plantilla
@@ -29,19 +30,28 @@ class MvcController{
     }
 
     public static function loginController(){
-      if (isset($_POST["cl_matricula"])) {
-        $datosController = array("clave_matricula"=>$_POST["cl_matricula"], "password" => $_POST["cl_passw"]);
-        $respuesta = Datos::loginPortalModel($datosController,"bd_tm_pro");
-        //var_dump($respuesta);
-        if($respuesta["bd_tm_pro_matricula"]==$_POST["cl_matricula"]&& $respuesta["bd_tm_pro_pass"]== $_POST["cl_passw"]){
-          /*crear sesiones*/
-          session_start();
-          $_SESSION["validar"] = true;
+      if (isset($_SESSION['cl_matricula'])){
+        echo "hay sesion";
+      } else if (isset($_POST["cl_matricula"]) && isset($_POST["cl_passw"])) {
+        // mapeamos la info
+          $matForm = $_POST["cl_matricula"];
+          $passForm = $_POST["cl_passw"];
 
-          echo "<script>window.location='index.php?action=inicio'</script>";
-        }else{
+        //  $datosController = array("clave_matricula"=>$_POST["cl_matricula"], "password" => $_POST["cl_passw"]);
+      //    $respuesta = Datos::loginPortalModel($datosController,"bd_tm_pro");
+          //var_dump($respuesta);
+          if(User::userExists($matForm, $passForm)){
+            /*crear sesiones*/
+      //      $userName = UserSession::setCurrentUser($_POST["cl_matricula"]);
+              echo "Usuario Validado";
+              echo "<script>window.location='index.php?action=inicio'</script>";
+          }else{
+            // el pass y la matricula son incorrectas
           echo "<script>window.location='index.php?action=error'</script>";
         }
+      }
+      else{
+       #echo "<script>window.location='index.php'</script>";
       }
     }
 

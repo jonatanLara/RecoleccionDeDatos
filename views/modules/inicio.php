@@ -61,7 +61,6 @@
               <th scope="col" width="5%">#</th>
               <th scope="col" width="20%">Monumento</th>
               <th scope="col" width="20%">Arq. Prospección</th>
-              <th scope="col" width="20%">Arq. Excavación</th>
               <th scope="col" width="20%">Última actualización</th>
               <th scope="col" width="20%"></th>
             </tr>
@@ -69,9 +68,8 @@
       <tbody>
         <tr>
           <td>1</td>
-          <td>T1_05026_303</td>
+          <td>T1_05026</td>
           <td>Ángel Juventino</td>
-          <td>Eyden Jesús </td>
           <td>2022.06.17</td>
           <td class="text-end"><a type="button" class="btn btn-primary" href=""
             style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">

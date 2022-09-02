@@ -5,10 +5,10 @@ class UserSession{
   }
   // seccion actual
   public function setCurrentUser($user){
-    $_SESSION['user'] = $user;
+    $_SESSION['cl_matricula'] = $user;
   }
   public function getCurrentUser(){
-    return $_SESSION['user'];
+    return $_SESSION['cl_matricula'];
   }
   public function closeSession(){
     session_unset();
