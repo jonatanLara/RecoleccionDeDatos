@@ -7,8 +7,6 @@
  */
 
 class MvcController{
-
-
     #bloque de llamar a la plantilla
     public static function pagina(){
         include_once  'views/template.php';
@@ -35,9 +33,9 @@ class MvcController{
       $user = new User();
 
       if (isset($_SESSION['cl_matricula'])){
-        echo "hay sesion";
+        //echo "hay sesion";
         $user->setUser($userSession->getCurrentUser());
-        echo "print".$userSession->getCurrentUser() ;
+      //  echo "print".$userSession->getCurrentUser() ;
         echo "<script>window.location='index.php?action=inicio'</script>";
       } else if (isset($_POST["cl_matricula"]) && isset($_POST["cl_passw"])) {
         // mapeamos la info
@@ -49,7 +47,7 @@ class MvcController{
             /*crear sesiones*/
               $userSession->setCurrentUser($matForm);
               $user->setUser($matForm);
-              echo "Usuario Validado";
+            //  echo "Usuario Validado";
               echo "<script>window.location='index.php?action=inicio'</script>";
           }else{
             // el pass y la matricula son incorrectas
@@ -65,7 +63,6 @@ class MvcController{
       $numCeldas = 0;
       $numColum = 0;
       if(isset($_FILES['dataCliente'])) { // si el input archivocsv_nombre tiene datos
-
         //input nombre del archivo
         $archivoCSV  = $_FILES['dataCliente']['tmp_name'];
         if (($handle = fopen($archivoCSV, "r")) !== FALSE) {

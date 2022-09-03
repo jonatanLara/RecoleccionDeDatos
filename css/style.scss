@@ -72,7 +72,7 @@ body{
   background: $COLOR-BLANCO;
   border-radius: 7px;
   padding: 8px;
-  margin: 10px;
+  // margin: 10px;
   box-shadow: 0 0 4px 1px rgba(2,2,2,0.1);
 }
 .search{
@@ -80,6 +80,55 @@ body{
   left:10px;
 }
 
-.green{
-    color:green;
+.color-rojo{
+  color: $COLOR-PRIMARIO_;
+}
+.hover-color-rojo{
+  &:hover{
+    color: $COLOR-PRIMARIO;
+  }
+}
+.subtitulo {
+  font-size: 8px;
+  font-weight: normal; }
+
+.small {
+  font-size: small; }
+.bold{
+   font-weight: bold;
+}
+.account-settings .user-profile {
+    margin: 0 0 1rem 0;
+    padding-bottom: 1rem;
+    text-align: center;
+}
+.account-settings .user-profile .user-avatar {
+    margin: 0 0 1rem 0;
+}
+.account-settings .user-profile .user-avatar img {
+    width: 90px;
+    height: 90px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+}
+.account-settings .user-profile h5.user-name {
+    margin: 0 0 0.5rem 0;
+    color:$COLOR-PRIMARIO;
+}
+.account-settings .user-profile h6.user-email {
+    margin: 0;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #9fa8b9;
+}
+.account-settings .about {
+    margin: 2rem 0 0 0;
+    text-align: center;
+}
+.account-settings .about h5 {
+    margin: 0 0 15px 0;
+}
+.account-settings .about p {
+    font-size: 0.825rem;
 }
