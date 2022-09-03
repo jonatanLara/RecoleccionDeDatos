@@ -1,9 +1,10 @@
 <?php
-  // session_start();
-  // if(!$_SESSION["validar"]){// si validar es igual a falso
-  //   echo "<script>window.location='index.php'</script>"; // se le redirige a la persona al login
-  //   exit();
-  // }
+   session_start();
+  if(isset($_SESSION["cl_matricula"])){// si validar es igual a falso
+      //echo "<script>window.location='index.php'</script>"; // se le redirige a la persona al login
+    $getNombre = $_SESSION["cl_matricula"];
+    //exit();
+   }
 ?>
 
 <?php include_once  'views/modules/header.php'; ?>

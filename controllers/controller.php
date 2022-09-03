@@ -8,6 +8,7 @@
 
 class MvcController{
 
+
     #bloque de llamar a la plantilla
     public static function pagina(){
         include_once  'views/template.php';
@@ -30,19 +31,24 @@ class MvcController{
     }
 
     public static function loginController(){
+      $userSession = new UserSession();
+      $user = new User();
+
       if (isset($_SESSION['cl_matricula'])){
         echo "hay sesion";
+        $user->setUser($userSession->getCurrentUser());
+        echo "print".$userSession->getCurrentUser() ;
+        echo "<script>window.location='index.php?action=inicio'</script>";
       } else if (isset($_POST["cl_matricula"]) && isset($_POST["cl_passw"])) {
         // mapeamos la info
           $matForm = $_POST["cl_matricula"];
           $passForm = $_POST["cl_passw"];
 
-        //  $datosController = array("clave_matricula"=>$_POST["cl_matricula"], "password" => $_POST["cl_passw"]);
-      //    $respuesta = Datos::loginPortalModel($datosController,"bd_tm_pro");
           //var_dump($respuesta);
-          if(User::userExists($matForm, $passForm)){
+          if($user->userExists($matForm, $passForm)){
             /*crear sesiones*/
-      //      $userName = UserSession::setCurrentUser($_POST["cl_matricula"]);
+              $userSession->setCurrentUser($matForm);
+              $user->setUser($matForm);
               echo "Usuario Validado";
               echo "<script>window.location='index.php?action=inicio'</script>";
           }else{
@@ -51,10 +57,9 @@ class MvcController{
         }
       }
       else{
-       #echo "<script>window.location='index.php'</script>";
+       echo "<script>window.location='index.php'</script>";
       }
     }
-
     public static function cargarCSV(){
       $row = 1;
       $numCeldas = 0;

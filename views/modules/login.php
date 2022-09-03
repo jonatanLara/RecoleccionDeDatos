@@ -19,7 +19,7 @@
           }
         ?>
         <form role="form" method="post">
-          
+
           <!-- Matrícula input -->
           <div class="form-outline mb-4">
             <input type="text" id="form3Example3" class="form-control form-control-lg"

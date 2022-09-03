@@ -23,7 +23,7 @@
             <li><a class="dropdown-item" data-bs-toggle="modal" href="#modalForm" <i class="fas fa-plus pe-2"></i>Nuevo Monumento</a></li>
             <li><a class="dropdown-item" href="#"><i class="fas fa-tools pe-2"></i>Configuración</a></li>
             <li><a class="dropdown-item" href="#"><i class="fas fa-user-circle pe-2"></i>Perfil</a></li>
-            <li><a class="dropdown-item" href="#"><?php echo UserSession::getCurrentUser(); ?></a></li>
+            <li><a class="dropdown-item" ><?php echo $getNombre; ?></a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="index.php?action=destroy"><i class="fas fa-sign-out-alt pe-2"></i>Cerrar Sesión</a></li>
           </ul>
