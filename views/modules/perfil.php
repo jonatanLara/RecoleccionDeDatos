@@ -18,6 +18,9 @@
               <h5 class="color-rojo">Acerca de mi</h5>
               <p>Soy Originario de <?php echo $user->getOrigen()?> </p>
             </div>
+            <div class="btns-footer d-flex justify-content-center">
+              <button type="button" id="submit" name="submit" class="btn bg-primario bg-primario-hover submitBtn" >Actualizar</button>
+            </div>
           </div>
         </div>
       </div>
@@ -83,7 +86,7 @@
                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                    <div class="d-flex justify-content-end">
                      <button type="button" id="submit" name="submit" class="btn btn-default" style="margin-right: 10px;">Cancel</button>
-                     <button type="button" id="submit" name="submit" class="btn bg-primario bg-primario-hover submitBtn">Guardar</button>
+                     <button type="button" id="submit" name="submit" class="btn bg-primario bg-primario-hover submitBtn" >Guardar</button>
                    </div>
                  </div>
                </div>

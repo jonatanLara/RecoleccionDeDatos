@@ -18,28 +18,99 @@ class Datos extends Conexion{
         return $stmt->fetch();
     }
     #vista
-    public static function vistaDatosModel(){
-        $stmt = Conexion::conectar()->prepare("SELECT idgaleria, imagen, texto FROM galeria WHERE categoria_id = 1");
+    public static function vistaTablaUsuariosModel(){
+        $stmt = Conexion::conectar()->prepare("SELECT bd_tm_pro_id, bd_tm_pro_nombre,bd_tm_pro_apellido_p,bd_tm_pro_apellido_m,bd_tm_pro_edad,
+          bd_tm_pro_genero, bd_tm_pro_origen, bd_tm_pro_matricula, bd_tm_pro_correo, bd_tm_pro_telefono, bd_tm_uur_usuario, bd_tm_ett_estatus
+          FROM bd_tm_pro
+          INNER JOIN bd_tm_uur ON bd_tm_pro.bd_tm_pro_id_usuario = bd_tm_uur.bd_tm_uur_id
+          INNER JOIN bd_tm_ett ON bd_tm_pro.bd_tm_pro_id_estatus = bd_tm_ett.bd_tm_ett_id");
         $stmt->execute();
         return $stmt->fetchAll();
         $stmt->close();
     }
-    #Registro
-    public static function agrergarDatoModel($datosModels){
-        $stmt = Conexion::conectar()->prepare("INSERT INTO talent(nombre, matricula, correo, telefono, licenciatura, seguro, saldo)
-        VALUES (:nombre,:matricula,:correo,:telefono,:licenciatura,:seguro,:saldo)");
-        $saldo = 0;
+    #vista
+    public static function vistaTablaIDProspeccionModel(){
+        $stmt = Conexion::conectar()->prepare("SELECT bd_tm_tao_tramo, bd_tm_tao_codigo, bd_tm_pro_nombre, bd_tm_pro_apellido_p,bd_tm_pro_apellido_m, bd_tm_pro_matricula, bd_tm_car_calve
+        FROM bd_tm_tao
+        INNER JOIN bd_tm_pro ON bd_tm_tao.bd_tm_tao_id_matricula = bd_tm_pro.bd_tm_pro_matricula
+        INNER JOIN bd_tm_cae ON bd_tm_tao.bd_tm_tao_id_tipo_clave = bd_tm_cae.bd_tm_car_id
+        WHERE bd_tm_tao_id_tipo_clave = 1;");
+        $stmt->execute();
+        return $stmt->fetchAll();
+        $stmt->close();
+    }
+    #vista
+    public static function vistaTablaIDExcavacionModel(){
+        $stmt = Conexion::conectar()->prepare("SELECT bd_tm_tao_tramo, bd_tm_tao_codigo, bd_tm_pro_nombre, bd_tm_pro_apellido_p,bd_tm_pro_apellido_m, bd_tm_pro_matricula, bd_tm_car_calve
+        FROM bd_tm_tao
+        INNER JOIN bd_tm_pro ON bd_tm_tao.bd_tm_tao_id_matricula = bd_tm_pro.bd_tm_pro_matricula
+        INNER JOIN bd_tm_cae ON bd_tm_tao.bd_tm_tao_id_tipo_clave = bd_tm_cae.bd_tm_car_id
+        WHERE bd_tm_tao_id_tipo_clave = 2;");
+        $stmt->execute();
+        return $stmt->fetchAll();
+        $stmt->close();
+    }
+    #vista
+    public static function vistaTablaIDTopografoModel(){
+        $stmt = Conexion::conectar()->prepare("SELECT bd_tm_tao_tramo, bd_tm_tao_codigo, bd_tm_pro_nombre, bd_tm_pro_apellido_p,bd_tm_pro_apellido_m, bd_tm_pro_matricula, bd_tm_car_calve
+        FROM bd_tm_tao
+        INNER JOIN bd_tm_pro ON bd_tm_tao.bd_tm_tao_id_matricula = bd_tm_pro.bd_tm_pro_matricula
+        INNER JOIN bd_tm_cae ON bd_tm_tao.bd_tm_tao_id_tipo_clave = bd_tm_cae.bd_tm_car_id
+        WHERE bd_tm_tao_id_tipo_clave = 3;");
+        $stmt->execute();
+        return $stmt->fetchAll();
+        $stmt->close();
+    }
+    #Registro id arqueólogos de prospección
+    public static function agrergarIDArqProsModel($datosModels){
+        $stmt = Conexion::conectar()->prepare("INSERT INTO bd_tm_tao (bd_tm_tao_tramo, bd_tm_tao_codigo, bd_tm_tao_id_matricula, bd_tm_tao_id_tipo_clave)
+        VALUES (:tramo,:codigo,:matricula,:clave)");
+        $clave = 1;
         #bindParam vincula
-        $stmt->bindParam(":nombre", $datosModels["nombre-tld"],PDO::PARAM_STR);
-        $stmt->bindParam(":matricula", $datosModels["matricula-tld"],PDO::PARAM_STR);
-        $stmt->bindParam(":correo", $datosModels["email-tld"],PDO::PARAM_STR);
-        $stmt->bindParam(":telefono", $datosModels["tel-tld"],PDO::PARAM_STR);
-        $stmt->bindParam(":licenciatura", $datosModels["licenciatura-tld"],PDO::PARAM_STR);
-        $stmt->bindParam(":seguro", $datosModels["seguro-tld"],PDO::PARAM_STR);
-        $stmt->bindParam(":saldo", $saldo,PDO::PARAM_INT);
+        $stmt->bindParam(":tramo", $datosModels["nombre-tld"],PDO::PARAM_STR);
+        $stmt->bindParam(":codigo", $datosModels["matricula-tld"],PDO::PARAM_STR);
+        $stmt->bindParam(":matricula", $datosModels["email-tld"],PDO::PARAM_STR);
+        $stmt->bindParam(":clave", $clave,PDO::PARAM_INT);
 
         if($stmt->execute()){
+            return "success";
+        }
+        else{
+            return "error";
+        }
+        $stmt->close();
+    }
+    #Registro id arqueólogos de excavacion
+    public static function agrergarIDArqExcModel($datosModels){
+        $stmt = Conexion::conectar()->prepare("INSERT INTO bd_tm_tao (bd_tm_tao_tramo, bd_tm_tao_codigo, bd_tm_tao_id_matricula, bd_tm_tao_id_tipo_clave)
+        VALUES (:tramo,:codigo,:matricula,:clave)");
+        $clave = 2;
+        #bindParam vincula
+        $stmt->bindParam(":tramo", $datosModels["nombre-tld"],PDO::PARAM_STR);
+        $stmt->bindParam(":codigo", $datosModels["matricula-tld"],PDO::PARAM_STR);
+        $stmt->bindParam(":matricula", $datosModels["email-tld"],PDO::PARAM_STR);
+        $stmt->bindParam(":clave", $clave,PDO::PARAM_INT);
 
+        if($stmt->execute()){
+            return "success";
+        }
+        else{
+            return "error";
+        }
+        $stmt->close();
+    }
+    #Registro id arqueólogos de topografo
+    public static function agrergarIDTopografosModel($datosModels){
+        $stmt = Conexion::conectar()->prepare("INSERT INTO bd_tm_tao (bd_tm_tao_tramo, bd_tm_tao_codigo, bd_tm_tao_id_matricula, bd_tm_tao_id_tipo_clave)
+        VALUES (:tramo,:codigo,:matricula,:clave)");
+        $clave = 3;
+        #bindParam vincula
+        $stmt->bindParam(":tramo", $datosModels["nombre-tld"],PDO::PARAM_STR);
+        $stmt->bindParam(":codigo", $datosModels["matricula-tld"],PDO::PARAM_STR);
+        $stmt->bindParam(":matricula", $datosModels["email-tld"],PDO::PARAM_STR);
+        $stmt->bindParam(":clave", $clave,PDO::PARAM_INT);
+
+        if($stmt->execute()){
             return "success";
         }
         else{

@@ -58,6 +58,83 @@ class MvcController{
        //echo "<script>window.location='index.php'</script>";
       }
     }
+    //tabla usuarios
+    public static function vistaTablaUsuariosController(){
+      $respuesta = Datos::vistaTablaUsuariosModel();
+      $numcont=1;
+      foreach ($respuesta as $row => $item){
+        $numcont = $numcont + $row;
+        echo '<tr>
+                <td>'.$numcont.'</td>
+                <td>'.$item["bd_tm_pro_matricula"].'</td>
+                <td>'.$item["bd_tm_pro_nombre"].' '.$item["bd_tm_pro_apellido_p"].' '.$item["bd_tm_pro_apellido_m"].'</td>
+                <td>'.$item["bd_tm_pro_origen"].'</td>
+                <td>'.$item["bd_tm_pro_correo"].'</td>
+                <td>'.$item["bd_tm_pro_telefono"].'</td>
+                <td>'.$item["bd_tm_uur_usuario"].'</td>
+                <td>'.$item["bd_tm_ett_estatus"].'</td>
+                <td class="d-flex justify-content-end"><a type="button" class="btn btn-primary" href=index.php?action=editar-usuario&matricula='.$item["bd_tm_pro_matricula"].'
+                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                  <i class="fas fa-pen-square pe-1"></i> Editar</a></td>
+              </tr>';
+      }
+    }
+    //tabla usuarios
+    public static function vistaTablaIDProspeccionController(){
+      $respuesta = Datos::vistaTablaIDProspeccionModel();
+      $numcont=1;
+      foreach ($respuesta as $row => $item){
+        $numcont = $numcont + $row;
+        echo '<tr>
+                <td>'.$numcont.'</td>
+                <td>'.$item["bd_tm_tao_tramo"].'</td>
+                <td>'.$item["bd_tm_tao_codigo"].'</td>
+                <td>'.$item["bd_tm_pro_nombre"].' '.$item["bd_tm_pro_apellido_p"].' '.$item["bd_tm_pro_apellido_m"].'</td>
+                <td>'.$item["bd_tm_pro_matricula"].'</td>
+                <td class="d-flex justify-content-end"><a type="button" class="btn btn-primary" href=index.php?action=editar-usuario&matricula='.$item["bd_tm_pro_matricula"].'
+                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                  <i class="fas fa-pen-square pe-1"></i> Editar</a></td>
+              </tr>';
+      }
+    }
+    //tabla usuarios
+    public static function vistaTablaIDExcavacionController(){
+      $respuesta = Datos::vistaTablaIDExcavacionModel();
+      $numcont=1;
+      foreach ($respuesta as $row => $item){
+        $numcont = $numcont + $row;
+        echo '<tr>
+                <td>'.$numcont.'</td>
+                <td>'.$item["bd_tm_tao_tramo"].'</td>
+                <td>'.$item["bd_tm_tao_codigo"].'</td>
+                <td>'.$item["bd_tm_pro_nombre"].' '.$item["bd_tm_pro_apellido_p"].' '.$item["bd_tm_pro_apellido_m"].'</td>
+                <td>'.$item["bd_tm_pro_matricula"].'</td>
+                <td class="d-flex justify-content-end"><a type="button" class="btn btn-primary" href=index.php?action=editar-usuario&matricula='.$item["bd_tm_pro_matricula"].'
+                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                  <i class="fas fa-pen-square pe-1"></i> Editar</a></td>
+              </tr>';
+      }
+    }
+
+    //tabla usuarios
+    public static function vistaTablaIDTopografoController(){
+      $respuesta = Datos::vistaTablaIDTopografoModel();
+      $numcont=1;
+      foreach ($respuesta as $row => $item){
+        $numcont = $numcont + $row;
+        echo '<tr>
+                <td>'.$numcont.'</td>
+                <td>'.$item["bd_tm_tao_tramo"].'</td>
+                <td>'.$item["bd_tm_tao_codigo"].'</td>
+                <td>'.$item["bd_tm_pro_nombre"].' '.$item["bd_tm_pro_apellido_p"].' '.$item["bd_tm_pro_apellido_m"].'</td>
+                <td>'.$item["bd_tm_pro_matricula"].'</td>
+                <td class="d-flex justify-content-end"><a type="button" class="btn btn-primary" href=index.php?action=editar-usuario&matricula='.$item["bd_tm_pro_matricula"].'
+                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                  <i class="fas fa-pen-square pe-1"></i> Editar</a></td>
+              </tr>';
+      }
+    }
+
     public static function cargarCSV(){
       $row = 1;
       $numCeldas = 0;
@@ -67,7 +144,7 @@ class MvcController{
         $archivoCSV  = $_FILES['dataCliente']['tmp_name'];
         if (($handle = fopen($archivoCSV, "r")) !== FALSE) {
             echo '<table  class="generales">';
-            while (($data = fgetcsv($handle, 6000, ";")) !== FALSE) {
+            while (($data = fgetcsv($handle, 100, ";")) !== FALSE) {
                 $num = count($data);
                 if ($row == 1) {
                     echo '<thead><tr>';
@@ -89,7 +166,7 @@ class MvcController{
                     }else{
                       $cells2 = explode(",", $value);
                         foreach ($cells2 as $cell) {
-                            $numCeldas++;
+                            $numCeldas ++;
                             echo '<td class="col2">'.utf8_encode($cell).' ('.$numCeldas.')</td>' ;// celdas
                             $numColum = count($cells2);
 
