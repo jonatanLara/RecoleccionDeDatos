@@ -55,7 +55,7 @@ class MvcController{
         }
       }
       else{
-       echo "<script>window.location='index.php'</script>";
+       //echo "<script>window.location='index.php'</script>";
       }
     }
     public static function cargarCSV(){
