@@ -14,12 +14,27 @@
   <div class="caja">
     <div class="px-2">
         <div class="mb-2 d-flex justify-content-between align-items-center">
-            <div class="position-relative">
-                <input class="form-control w-100" placeholder="Buscar nombre">
+            <div class="">
+              <span>Filters <i class="fa fa-angle-down"></i></span>
+            </div>
+            <div class="d-flex justify-content-center align-items-center">
+              <label for="" class="p-3">Estatus</label>
+              <select class="form-select " aria-label="Default select example">
+                <option value="1" selected>Todos</option>
+                <option value="2">Activo</option>
+                <option value="3">Baja</option>
+              </select>
+            </div>
+            <div class="d-flex justify-content-center align-items-center">
+              <label for="" class="p-3">Tramo</label>
+              <select class="form-select " aria-label="Default select example">
+                <option value="1" selected>T1</option>
+                <option value="2">Activo</option>
+                <option value="3">Baja</option>
+              </select>
             </div>
             <div class="px-2">
-              <span>Filters <i class="fa fa-angle-down"></i></span>
-              <i class="fa fa-ellipsis-h ms-3"></i>
+                <input class="form-control" placeholder="Buscar nombre">
             </div>
         </div>
         <div class="table-responsive">

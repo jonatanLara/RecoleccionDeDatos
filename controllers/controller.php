@@ -61,9 +61,17 @@ class MvcController{
     //tabla usuarios
     public static function vistaTablaUsuariosController(){
       $respuesta = Datos::vistaTablaUsuariosModel();
-      $numcont=1;
+      $numcont=0;
+      $status ="";
       foreach ($respuesta as $row => $item){
-        $numcont = $numcont + $row;
+        if ( $item["bd_tm_ett_estatus"] == "Activo"){
+            $status = '<h6 class="activo">'.$item["bd_tm_ett_estatus"].'</h6>';
+        }
+        else if( $item["bd_tm_ett_estatus"] == "Baja"){
+            $status = '<h6 class="baja">'.$item["bd_tm_ett_estatus"].'</h6>';
+        }
+
+        $numcont = $numcont +1;
         echo '<tr>
                 <td>'.$numcont.'</td>
                 <td>'.$item["bd_tm_pro_matricula"].'</td>
@@ -72,7 +80,7 @@ class MvcController{
                 <td>'.$item["bd_tm_pro_correo"].'</td>
                 <td>'.$item["bd_tm_pro_telefono"].'</td>
                 <td>'.$item["bd_tm_uur_usuario"].'</td>
-                <td>'.$item["bd_tm_ett_estatus"].'</td>
+                <td>'.$status.'</h6></td>
                 <td class="d-flex justify-content-end"><a type="button" class="btn btn-primary" href=index.php?action=editar-usuario&matricula='.$item["bd_tm_pro_matricula"].'
                   style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
                   <i class="fas fa-pen-square pe-1"></i> Editar</a></td>
@@ -84,7 +92,7 @@ class MvcController{
       $respuesta = Datos::vistaTablaIDProspeccionModel();
       $numcont=1;
       foreach ($respuesta as $row => $item){
-        $numcont = $numcont + $row;
+        $numcont = $numcont +1;
         echo '<tr>
                 <td>'.$numcont.'</td>
                 <td>'.$item["bd_tm_tao_tramo"].'</td>
@@ -134,12 +142,18 @@ class MvcController{
               </tr>';
       }
     }
-
+    # Agregar id clave para arqueólogos, topgrafos, EventConfig
+    public static function agregarCodigoController(){
+      $nivel ="";
+      $estatus ="";
+      $datosController = array(""=> $_POST[""]);
+      $respuesta = Datos::agrergarIDClaveModel($datosController,$nivel,$estatus);
+    }
     public static function cargarCSV(){
       $row = 1;
       $numCeldas = 0;
       $numColum = 0;
-      if(isset($_FILES['dataCliente'])) { // si el input archivocsv_nombre tiene datos
+      if(isset($_FILES['dataCliente'])) { // Si el input archivocsv_nombre tiene datos
         //input nombre del archivo
         $archivoCSV  = $_FILES['dataCliente']['tmp_name'];
         if (($handle = fopen($archivoCSV, "r")) !== FALSE) {
@@ -161,10 +175,9 @@ class MvcController{
                         $cells = explode(",",$value);
                         foreach ($cells as $cell) {
                             echo '<th class="col1">'.utf8_encode($cell).'</th>'; // encabezados
-
                         }
                     }else{
-                      $cells2 = explode(",", $value);
+                        $cells2 = explode(",", $value);
                         foreach ($cells2 as $cell) {
                             $numCeldas ++;
                             echo '<td class="col2">'.utf8_encode($cell).' ('.$numCeldas.')</td>' ;// celdas

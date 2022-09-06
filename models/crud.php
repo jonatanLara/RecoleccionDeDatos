@@ -61,16 +61,25 @@ class Datos extends Conexion{
         return $stmt->fetchAll();
         $stmt->close();
     }
-    #Registro id arqueólogos de prospección
-    public static function agrergarIDArqProsModel($datosModels){
-        $stmt = Conexion::conectar()->prepare("INSERT INTO bd_tm_tao (bd_tm_tao_tramo, bd_tm_tao_codigo, bd_tm_tao_id_matricula, bd_tm_tao_id_tipo_clave)
-        VALUES (:tramo,:codigo,:matricula,:clave)");
+    #Registro de personas
+    public static function agrergarPersonaModel($datosModels,$nivel,$estatus){
+        $stmt = Conexion::conectar()->prepare("INSERT INTO bd_tm_pro (bd_tm_pro_nombre, bd_tm_pro_apellido_p, bd_tm_pro_apellido_m, bd_tm_pro_edad, bd_tm_pro_genero, bd_tm_pro_origen, bd_tm_pro_matricula, bd_tm_pro_correo, bd_tm_pro_telefono, bd_tm_pro_estudio, bd_tm_pro_pass, bd_tm_pro_id_usuario, bd_tm_pro_id_estatus)
+        VALUES (:nombre,:apellido_p,:apellido_m,:edad,:genero,:origen,:matricula,:correo,:telefono,:estudios,:password,:idusuario,:idestatus)");
         $clave = 1;
         #bindParam vincula
-        $stmt->bindParam(":tramo", $datosModels["nombre-tld"],PDO::PARAM_STR);
-        $stmt->bindParam(":codigo", $datosModels["matricula-tld"],PDO::PARAM_STR);
-        $stmt->bindParam(":matricula", $datosModels["email-tld"],PDO::PARAM_STR);
-        $stmt->bindParam(":clave", $clave,PDO::PARAM_INT);
+        $stmt->bindParam(":nombre", $datosModels[""],PDO::PARAM_STR);
+        $stmt->bindParam(":apellido_p", $datosModels[""],PDO::PARAM_STR);
+        $stmt->bindParam(":apellido_m", $datosModels[""],PDO::PARAM_STR);
+        $stmt->bindParam(":edad", $datosModels[""],PDO::PARAM_STR);
+        $stmt->bindParam(":genero", $datosModels[""],PDO::PARAM_STR);
+        $stmt->bindParam(":origen", $datosModels[""],PDO::PARAM_STR);
+        $stmt->bindParam(":matricula", $datosModels[""],PDO::PARAM_STR);
+        $stmt->bindParam(":correo", $datosModels[""],PDO::PARAM_STR);
+        $stmt->bindParam(":telefono", $datosModels[""],PDO::PARAM_STR);
+        $stmt->bindParam(":estudios", $datosModels[""],PDO::PARAM_STR);
+        $stmt->bindParam(":password", $datosModels[""],PDO::PARAM_STR);
+        $stmt->bindParam(":idusuario", $nivel, PDO::PARAM_INT);
+        $stmt->bindParam(":idestatus", $estatus, PDO::PARAM_INT);
 
         if($stmt->execute()){
             return "success";
@@ -80,35 +89,15 @@ class Datos extends Conexion{
         }
         $stmt->close();
     }
-    #Registro id arqueólogos de excavacion
-    public static function agrergarIDArqExcModel($datosModels){
+    #Registro id arqueólogos de prospección
+    public static function agrergarIDClaveModel($datosModels, $clave){
         $stmt = Conexion::conectar()->prepare("INSERT INTO bd_tm_tao (bd_tm_tao_tramo, bd_tm_tao_codigo, bd_tm_tao_id_matricula, bd_tm_tao_id_tipo_clave)
         VALUES (:tramo,:codigo,:matricula,:clave)");
-        $clave = 2;
         #bindParam vincula
         $stmt->bindParam(":tramo", $datosModels["nombre-tld"],PDO::PARAM_STR);
         $stmt->bindParam(":codigo", $datosModels["matricula-tld"],PDO::PARAM_STR);
         $stmt->bindParam(":matricula", $datosModels["email-tld"],PDO::PARAM_STR);
-        $stmt->bindParam(":clave", $clave,PDO::PARAM_INT);
-
-        if($stmt->execute()){
-            return "success";
-        }
-        else{
-            return "error";
-        }
-        $stmt->close();
-    }
-    #Registro id arqueólogos de topografo
-    public static function agrergarIDTopografosModel($datosModels){
-        $stmt = Conexion::conectar()->prepare("INSERT INTO bd_tm_tao (bd_tm_tao_tramo, bd_tm_tao_codigo, bd_tm_tao_id_matricula, bd_tm_tao_id_tipo_clave)
-        VALUES (:tramo,:codigo,:matricula,:clave)");
-        $clave = 3;
-        #bindParam vincula
-        $stmt->bindParam(":tramo", $datosModels["nombre-tld"],PDO::PARAM_STR);
-        $stmt->bindParam(":codigo", $datosModels["matricula-tld"],PDO::PARAM_STR);
-        $stmt->bindParam(":matricula", $datosModels["email-tld"],PDO::PARAM_STR);
-        $stmt->bindParam(":clave", $clave,PDO::PARAM_INT);
+        $stmt->bindParam(":clave", $clave,PDO::PARAM_INT);// 1 arq pros, 2 arq exc, 3 topo, 4 proce
 
         if($stmt->execute()){
             return "success";

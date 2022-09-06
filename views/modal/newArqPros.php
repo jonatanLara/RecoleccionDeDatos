@@ -14,13 +14,13 @@
                     <div class="form-floating mb-3">
                       <select class="form-select" id="SelectTramo" aria-label="Floating label select example">
                         <option value=""selected>Abrir este menú de selección</option>
-                        <option value="1">T1</option>
-                        <option value="2">T2</option>
-                        <option value="3">T3</option>
-                        <option value="4">T4</option>
-                        <option value="5">T5</option>
-                        <option value="6">T6</option>
-                        <option value="7">T7</option>
+                        <option value="T1">T1</option>
+                        <option value="T2">T2</option>
+                        <option value="T3">T3</option>
+                        <option value="T4">T4</option>
+                        <option value="T5">T5</option>
+                        <option value="T6">T6</option>
+                        <option value="T7">T7</option>
                       </select>
                       <label for="SelectTramo">Seleccione el tramo</label>
                     </div>

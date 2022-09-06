@@ -132,3 +132,19 @@ body{
 .account-settings .about p {
     font-size: 0.825rem;
 }
+.activo{
+  background: #4dad80;
+  color: $COLOR-BLANCO;
+  border-radius: 25px;
+  text-align: center;
+  padding: 3px;
+  font-size: 11px;
+}
+.baja{
+  background: #e74949;
+  color: $COLOR-BLANCO;
+  border-radius: 25px;
+  text-align: center;
+  padding: 3px;
+  font-size: 11px;
+}
