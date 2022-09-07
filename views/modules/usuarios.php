@@ -6,7 +6,7 @@
       <h5 class="mb-2 color-rojo">Usuarios </h5>
     </div>
     <div class="">
-      <a class="btn bg-primario bg-primario-hover" role="button">
+      <a class="btn bg-primario bg-primario-hover"data-bs-toggle="modal" href="#modalFormPersona" role="button">
         <i class="fas fa-user-plus pe-2"></i>Nuevo Usuario
       </a>
     </div>
@@ -62,3 +62,4 @@
     </div>
   </div>
 </div>
+<?php include_once  'views/modal/newPersona.php'; ?>
