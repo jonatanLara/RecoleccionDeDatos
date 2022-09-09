@@ -16,6 +16,12 @@
                     <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
                   </div>";
             }
+            if($_GET["action"] == "error-baja"){
+              echo "<div class='alert alert-warning alert-dismissible fade show' role='alert'>
+                    <strong>Alerta!</strong> Este usuario esta de baja temporalmente
+                    <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+                  </div>";
+            }
           }
         ?>
         <form role="form" method="post">

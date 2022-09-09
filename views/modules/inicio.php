@@ -2,34 +2,6 @@
 <?php include_once  'views/modules/session.php'; ?>
 <?php include_once  'views/modules/header.php'; ?>
 <section>
-  <div class="container">
-    <div class="card">
-      <div class="card-header"><i class="fas fa-file-search"></i> Carga tu archivo</div>
-      <div class="card-body">
-
-        <form class="" action="" method="POST" enctype="multipart/form-data">
-          <div class="mb-3">
-            <label for="archivo"> Selecciona un archivo <code>.csv</code></label>
-            <input type="file" name="dataCliente" class="form-control" id="file-input" accept=".csv">
-          </div>
-          <button class="btn bg-primario bg-primario-hover" name="subir" value="Importar" ><i class="fas fa-file-import"></i> Importar</button>
-        </form>
-        <!-- <form  method="post">
-          <div class="mb-3">
-            <label for="archivo">Selecciona un archivo <code>.csv</code></label>
-            <input type="file" id="fileUpload" class="form-control" name="archivocsv_nombre" required>
-          </div>
-          <button class="btn btn-success" id="submit-file" type="submit">Importar</button>
-        </form> -->
-
-      </div>
-    </div>
-    <br>
-    <?php
-          $mvc = new MvcController();
-          $mvc -> cargarCSV();
-     ?>
-  </div>
 <div class="container">
   <div class="caja d-flex justify-content-end ">
       <!-- Button to trigger modal -->
@@ -60,17 +32,11 @@
                 <th scope="col" width="20%"></th>
               </tr>
             </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>T1_05026</td>
-            <td>Ángel Juventino</td>
-            <td>2022.06.17</td>
-            <td class="text-end"><a type="button" class="btn btn-primary" href=""
-              style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-              <i class="fas fa-pen-square pe-1"></i> Editar</a>
-            </td>
-            </tr>
+          <tbody>
+            <?php
+                  $mvc = new MvcController();
+                  $mvc -> vistaTablaMonumetosController();
+             ?>
           </tbody>
         </table>
       </div>

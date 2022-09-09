@@ -10,9 +10,16 @@ class UserSession{
   public function getCurrentUser(){
     return $_SESSION['cl_matricula'];
   }
+  public function setUserLevel($nivel){
+    $_SESSION['cl_nivelUsuario'] = $nivel;
+  }
+  public function getUserLevel(){
+    $_SESSION['cl_nivelUsuario'];
+  }
   public function closeSession(){
     session_unset();
     session_destroy();
   }
+
 }
 ?>

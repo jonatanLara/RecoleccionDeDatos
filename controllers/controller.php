@@ -37,18 +37,23 @@ class MvcController{
         $user->setUser($userSession->getCurrentUser());
       //  echo "print".$userSession->getCurrentUser() ;
         echo "<script>window.location='index.php?action=inicio'</script>";
-      } else if (isset($_POST["cl_matricula"]) && isset($_POST["cl_passw"])) {
+        } else if (isset($_POST["cl_matricula"]) && isset($_POST["cl_passw"])) {
         // mapeamos la info
           $matForm = $_POST["cl_matricula"];
           $passForm = $_POST["cl_passw"];
-
           //var_dump($respuesta);
           if($user->userExists($matForm, $passForm)){
             /*crear sesiones*/
-              $userSession->setCurrentUser($matForm);
-              $user->setUser($matForm);
-            //  echo "Usuario Validado";
-              echo "<script>window.location='index.php?action=inicio'</script>";
+            $user->setUser($matForm);
+              if($user->getEstatus()==='Activo'){
+                //  echo "Usuario Validado";
+                $userSession->setCurrentUser($matForm);
+                $userSession->setUserLevel($user->getNivelUsuario());//creo una session con el nivel de usuario
+                echo "<script>window.location='index.php?action=inicio'</script>";
+              }else if($user->getEstatus()==='Baja'){
+                // usuario causo baja
+                echo "<script>window.location='index.php?action=error-baja'</script>";
+              }
           }else{
             // el pass y la matricula son incorrectas
           echo "<script>window.location='index.php?action=error'</script>";
@@ -136,7 +141,23 @@ class MvcController{
                 <td>'.$item["bd_tm_tao_codigo"].'</td>
                 <td>'.$item["bd_tm_pro_nombre"].' '.$item["bd_tm_pro_apellido_p"].' '.$item["bd_tm_pro_apellido_m"].'</td>
                 <td>'.$item["bd_tm_pro_matricula"].'</td>
-                <td class="d-flex justify-content-end"><a type="button" class="btn btn-primary" href=index.php?action=editar-usuario&matricula='.$item["bd_tm_pro_matricula"].'
+                <td class="d-flex justify-content-end"><a type="button" class="btn btn-primary" href=index.php?action=monumento&matricula='.$item["bd_tm_pro_matricula"].'
+                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                  <i class="fas fa-pen-square pe-1"></i> Editar</a></td>
+              </tr>';
+      }
+    }
+    public static function vistaTablaMonumetosController(){
+      $respuesta = Datos::vistaTablaMonumentosModel();
+      $numcont=1;
+      foreach ($respuesta as $row => $item){
+        $numcont = $numcont + $row;
+        echo '<tr>
+                <td>'.$numcont.'</td>
+                <td>'.$item["bd_tm_mnm_tramo"].'_'.$item["bd_tm_mnm_arq_pros"].'</td>
+                <td>'.$item["bd_tm_pro_nombre"].' '.$item["bd_tm_pro_apellido_p"].' '.$item["bd_tm_pro_apellido_m"].'</td>
+                <td>'.$item["bd_tm_mnm_arq_pros"].'</td>
+                <td class="d-flex justify-content-end"><a type="button" class="btn btn-primary" href=index.php?action=monumento&clave='.$item["bd_tm_mnm_id"].'
                   style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
                   <i class="fas fa-pen-square pe-1"></i> Editar</a></td>
               </tr>';
@@ -149,6 +170,22 @@ class MvcController{
       $datosController = array(""=> $_POST[""]);
       $respuesta = Datos::agrergarIDClaveModel($datosController,$nivel,$estatus);
     }
+
+    public static function registroNuevoMonumentoController(){
+      if (isset($_POST["SelectTramo"]) && isset($_POST["IdArqpros"])) {
+          if(Datos::datoExists($_POST["SelectTramo"], $_POST["IdArqpros"])){
+            //si hay datos iguales
+            echo "<script type='text/javascript'>alert('Ese monumeto ya fue registrado anteriormente y no puede duplicarse!');</script>";
+
+          }else{
+            //si no hay datos iguales
+            $datosController = array("tramo"=> $_POST["SelectTramo"], "codigo"=>$_POST["IdArqpros"]);
+            $respuesta = Datos::registroNuevoMonumentoModel($datosController);
+            echo "<script>window.location='index.php?action=inicio'</script>";
+          }
+      }
+    }
+
     public static function cargarCSV(){
       $row = 1;
       $numCeldas = 0;
@@ -201,6 +238,7 @@ class MvcController{
           // va ir una alerta que no ha cargado el archivo
       }
     }
+
     public static function countRowCol(){
 
     }

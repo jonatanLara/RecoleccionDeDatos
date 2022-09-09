@@ -61,6 +61,22 @@ class Datos extends Conexion{
         return $stmt->fetchAll();
         $stmt->close();
     }
+    #vista Tabla monumentos
+    public static function vistaTablaMonumentosModel(){
+        $stmt = Conexion::conectar()->prepare("SELECT bd_tm_mnm_id, bd_tm_mnm_tramo, bd_tm_mnm_arq_pros,
+        bd_tm_tao_id_matricula,
+        bd_tm_pro_nombre, bd_tm_pro_apellido_p, bd_tm_pro_apellido_m
+        FROM bd_tm_mnm
+        INNER JOIN bd_tm_tao ON bd_tm_mnm.bd_tm_mnm_tramo = bd_tm_tao.bd_tm_tao_tramo AND substring(cast(bd_tm_mnm.bd_tm_mnm_arq_pros as varchar(5)),1,2) = substring(cast(bd_tm_tao.bd_tm_tao_codigo as varchar(5)),1,2)
+        INNER JOIN bd_tm_pro ON bd_tm_tao.bd_tm_tao_id_matricula = bd_tm_pro.bd_tm_pro_matricula; ");
+        $stmt->execute();
+        return $stmt->fetchAll();
+        $stmt->close();
+    }
+
+    public static function vistaModalNuevoMonumentoModel(){
+
+    }
     #Registro de personas
     public static function agrergarPersonaModel($datosModels,$nivel,$estatus){
         $stmt = Conexion::conectar()->prepare("INSERT INTO bd_tm_pro (bd_tm_pro_nombre, bd_tm_pro_apellido_p, bd_tm_pro_apellido_m, bd_tm_pro_edad, bd_tm_pro_genero, bd_tm_pro_origen, bd_tm_pro_matricula, bd_tm_pro_correo, bd_tm_pro_telefono, bd_tm_pro_estudio, bd_tm_pro_pass, bd_tm_pro_id_usuario, bd_tm_pro_id_estatus)
@@ -98,6 +114,33 @@ class Datos extends Conexion{
         $stmt->bindParam(":codigo", $datosModels["matricula-tld"],PDO::PARAM_STR);
         $stmt->bindParam(":matricula", $datosModels["email-tld"],PDO::PARAM_STR);
         $stmt->bindParam(":clave", $clave,PDO::PARAM_INT);// 1 arq pros, 2 arq exc, 3 topo, 4 proce
+
+        if($stmt->execute()){
+            return "success";
+        }
+        else{
+            return "error";
+        }
+        $stmt->close();
+    }
+    public  function datoExists($tramo, $codigo){
+      $stmt = Conexion::conectar()->prepare("SELECT bd_tm_mnm_id, bd_tm_mnm_tramo, bd_tm_mnm_arq_pros
+        FROM bd_tm_mnm
+        WHERE bd_tm_mnm_tramo = :tramo AND bd_tm_mnm_arq_pros  = :codigo");
+        $stmt->execute(['tramo'=>$tramo, 'codigo'=>$codigo]);
+      if($stmt->rowcount()){
+        return true;
+      }else{
+        return false;
+      }
+    }
+    #Registro  de nuevo monumeto
+    public static function registroNuevoMonumentoModel($datosModels, $clave){
+        $stmt = Conexion::conectar()->prepare("INSERT INTO bd_tm_mnm(bd_tm_mnm_tramo, bd_tm_mnm_arq_pros)
+        VALUES (:tramo,:codigo,:matricula)");
+        #bindParam vincula
+        $stmt->bindParam(":tramo", $datosModels["nombre-tld"],PDO::PARAM_STR);
+        $stmt->bindParam(":codigo", $datosModels["matricula-tld"],PDO::PARAM_STR);
 
         if($stmt->execute()){
             return "success";

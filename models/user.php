@@ -70,5 +70,6 @@ require_once "conexion.php";
       public function getUsuario(){return $this->USUARIO;}
       public function getNivelUsuario(){return $this->NIVEL_USUARIO;}
       public function getEstatus(){return $this->ESTATUS;}
+      
   }
 ?>

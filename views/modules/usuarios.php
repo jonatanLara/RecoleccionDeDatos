@@ -1,5 +1,6 @@
 <?php include_once  'views/modules/session.php'; ?>
 <?php include_once  'views/modules/header.php'; ?>
+
 <div class="container">
   <div class="caja d-flex justify-content-between align-items-center">
     <div class="">
