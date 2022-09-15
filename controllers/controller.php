@@ -217,9 +217,8 @@ class MvcController{
                         $cells2 = explode(",", $value);
                         foreach ($cells2 as $cell) {
                             $numCeldas ++;
-                            echo '<td class="col2">'.utf8_encode($cell).' ('.$numCeldas.')</td>' ;// celdas
+                            echo '<td class="col2">'.utf8_encode($cell).' </td>' ;// celdas
                             $numColum = count($cells2);
-
                         }
                     }
                 }

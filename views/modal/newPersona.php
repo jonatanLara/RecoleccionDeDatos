@@ -47,8 +47,8 @@
                     </div>
                   </div>
 
-                  <input type="text" name="nivelUsuario" value=<?php echo $user->getNivelUsuario() ?> >
-                  <input type="text" name="estatus"  value="1">
+                  <input type="hidden" name="nivelUsuario" value=<?php echo $user->getNivelUsuario() ?> >
+                  <input type="hidden" name="estatus"  value="1">
                 </form>
             </div>
 
