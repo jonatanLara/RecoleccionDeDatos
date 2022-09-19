@@ -150,4 +150,13 @@ class Datos extends Conexion{
         }
         $stmt->close();
     }
+    #Consulta con Ajax
+    public static function validarUsuarioModel(){
+      $stmt = Conexion::conectar()->prepare("SELECT bd_tm_pro_id, bd_tm_pro_nombre, bd_tm_pro_apellido_p, bd_tm_pro_apellido_m,
+        bd_tm_pro_id_estatus, bd_tm_pro_id_usuario, bd_tm_pro_matricula, bd_tm_pro_pass FROM $tabla WHERE bd_tm_pro_matricula = :clave_matricula");
+      $stmt->bindParam(":clave_matricula", $datosModels["clave_matricula"],PDO::PARAM_STR);
+      $stmt->execute();
+      return $stmt->fetch();
+      $stmt->close();
+    }
 }
