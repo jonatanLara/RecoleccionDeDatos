@@ -238,6 +238,19 @@ class MvcController{
       }
     }
 
+    //metodo con Ajax
+    public static function validarUsuarioController($validarUsuario){
+      $datosController = $validarUsuario;
+      $respuesta = Datos::validarUsuarioModel($datosController);
+      //si respuesta viene con caracteres
+      //si la respuesta viene vacia
+      if(count($respuesta["usuario"])>0){
+
+      }else{
+
+      }
+    }
+
     public static function countRowCol(){
 
     }
