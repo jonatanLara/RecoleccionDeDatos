@@ -9,6 +9,7 @@
 class Conexion{
     public static function conectar(){
         try {
+          //65.99.225.117
             $link = new PDO("mysql:host=localhost;dbname=bd_tren_maya","root","",
                 array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
         } catch (PDOException $e) {

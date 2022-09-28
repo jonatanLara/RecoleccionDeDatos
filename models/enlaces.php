@@ -13,7 +13,7 @@ class Paginas
         #lista blanca
         if ( $enlacesModel == "inicio" || $enlacesModel =="destroy" || $enlacesModel =="perfil"
         || $enlacesModel =="monumento"|| $enlacesModel =="usuarios" || $enlacesModel =="editar-usuario"
-        || $enlacesModel =="codigos" ) {
+        || $enlacesModel =="codigos" || $enlacesModel =="minutas" ) {
 
             $module = "views/modules/" . $enlacesModel . ".php";
         } #lista por defecto
