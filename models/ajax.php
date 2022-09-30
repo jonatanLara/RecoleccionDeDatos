@@ -5,7 +5,7 @@
  class Ajax{
    public $validarUsuario;
    public function validarUsuarioAjax(){
-     $datos = $$this->validarUsuario;
+     $datos = $this->validarUsuario;
   #   $respuesta = MvcController::validarUsuarioController($datos);
   #   echo $respuesta;
     echo $datos;

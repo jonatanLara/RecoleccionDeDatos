@@ -26,6 +26,7 @@ class Datos extends Conexion{
           INNER JOIN bd_tm_ett ON bd_tm_pro.bd_tm_pro_id_estatus = bd_tm_ett.bd_tm_ett_id");
         $stmt->execute();
         return $stmt->fetchAll();
+        //json_encode($stmt->fetchAll());
         $stmt->close();
     }
     #vista

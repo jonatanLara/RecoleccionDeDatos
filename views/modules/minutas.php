@@ -172,7 +172,7 @@
               echo '<div class="header">
                         <h5 class="color-rojo"><i class="far fa-folder"></i> / Lista de claves de derecho a vía</h5>
                       </div>
-                      <a type="button" class="btn bg-primario bg-primario-hover" href="" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                      <a type="button" data-bs-toggle="modal" href="#modalDDV" class="btn bg-primario bg-primario-hover" href="" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
                           <i class="far fa-file"></i></i> Agregar
                       </a>
                       <table class="table table-responsive table-borderless">
@@ -342,7 +342,7 @@
                           </tr>
                         </thead>
                       <tbody id="contenido">
-                        
+
                       </tbody>';
             }
           }
@@ -353,3 +353,4 @@
 
 </section>
 <?php include_once  'views/modal/newMinuta.php'; ?>
+<?php include_once  'views/modal/newDDV.php'; ?>
