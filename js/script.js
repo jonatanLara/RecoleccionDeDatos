@@ -9,7 +9,6 @@ function listarDDV(){
     })
 }
 registrar.addEventListener('click', () => {
-
   fetch('models/servidor.php',{
     method: 'POST',
     body: new FormData(modalDdv)
