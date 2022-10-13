@@ -21,6 +21,7 @@ require_once "conexion.php";
       PRIVATE $NIVEL_USUARIO;
       PRIVATE $ESTATUS;
       /* login */
+
       public  function userExists($matricula, $pass){
         $stmt = Conexion::conectar()->prepare("SELECT bd_tm_pro_id, bd_tm_pro_nombre, bd_tm_pro_apellido_p, bd_tm_pro_apellido_m,
           bd_tm_pro_id_estatus, bd_tm_pro_id_usuario, bd_tm_pro_matricula, bd_tm_pro_pass
@@ -34,7 +35,7 @@ require_once "conexion.php";
       }
 
       public function setUser($matricula){
-        $stmt = Conexion::conectar()->prepare("SELECT bd_tm_pro_id, bd_tm_pro_nombre,bd_tm_pro_apellido_p,bd_tm_pro_apellido_m,bd_tm_pro_edad,
+        $stmt = Conexion::conectar()->prepare("SELECT bd_tm_pro_id, bd_tm_pro_nombre,bd_tm_pro_apellido_p,bd_tm_pro_apellido_m, bd_tm_pro_fecha_nacimiento,
           bd_tm_pro_genero, bd_tm_pro_origen, bd_tm_pro_matricula, bd_tm_pro_correo, bd_tm_pro_telefono, bd_tm_pro_id_usuario, bd_tm_uur_usuario, bd_tm_ett_estatus
           FROM bd_tm_pro
           INNER JOIN bd_tm_uur ON bd_tm_pro.bd_tm_pro_id_usuario = bd_tm_uur.bd_tm_uur_id
@@ -48,7 +49,7 @@ require_once "conexion.php";
           $this->ID =  $currentUser['bd_tm_pro_id'];
           $this->APELLIDO_P =  $currentUser['bd_tm_pro_apellido_p'];
           $this->APELLIDO_M =  $currentUser['bd_tm_pro_apellido_m'];
-          $this->EDAD =  $currentUser['bd_tm_pro_edad'];
+          $this->EDAD =  $currentUser['bd_tm_pro_fecha_nacimiento'];
           $this->GENERO =  $currentUser['bd_tm_pro_genero'];
           $this->ORIGEN =  $currentUser['bd_tm_pro_origen'];
           $this->CORREO =  $currentUser['bd_tm_pro_correo'];
@@ -70,6 +71,6 @@ require_once "conexion.php";
       public function getUsuario(){return $this->USUARIO;}
       public function getNivelUsuario(){return $this->NIVEL_USUARIO;}
       public function getEstatus(){return $this->ESTATUS;}
-      
+
   }
 ?>
