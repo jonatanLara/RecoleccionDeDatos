@@ -11,7 +11,6 @@
             <div class="modal-body">
                 <p class="statusMsg"></p>
                 <form role="form" method="POST" id="modalDdv">
-
                   <div class="form-floating mb-3">
                     <input type="email" class="form-control" id="clave" name="clave">
                     <label for="floatingInput">Clave</label>
