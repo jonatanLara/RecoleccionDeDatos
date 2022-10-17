@@ -13,7 +13,7 @@ $COLOR-TERCIARIO_: #65242A;
   box-sizing: border-box;
 }
 body{
-  background: whitesmoke;
+  background-color: #f8f9fe;
 }
 .bg-primario{background: $COLOR-PRIMARIO;color:$COLOR-BLANCO}
 .bg-primario-hover{
@@ -73,7 +73,7 @@ body{
   border-radius: 7px;
   padding: 8px;
   // margin: 10px;
-  box-shadow: 0 0 4px 1px rgba(2,2,2,0.1);
+  box-shadow: 0 0 3px 1px rgba(2,2,2,0.1);
 }
 .search{
   top:6px;
@@ -338,4 +338,13 @@ body{
 }
 .btn-toggle-nav a.active {
   font-weight: bold;
+}
+.header-medical{
+  background: $COLOR-PRIMARIO_;
+  width: 100%;
+  h5{
+    color: $COLOR-BLANCO;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
 }

@@ -4,7 +4,7 @@
   box-sizing: border-box; }
 
 body {
-  background: whitesmoke; }
+  background-color: #f8f9fe; }
 
 .bg-primario {
   background: #621132;
@@ -62,7 +62,7 @@ body {
   background: #FFF;
   border-radius: 7px;
   padding: 8px;
-  box-shadow: 0 0 4px 1px rgba(2, 2, 2, 0.1); }
+  box-shadow: 0 0 3px 1px rgba(2, 2, 2, 0.1); }
 
 .search {
   top: 6px;
@@ -309,5 +309,13 @@ body {
 
 .btn-toggle-nav a.active {
   font-weight: bold; }
+
+.header-medical {
+  background: #9D2449;
+  width: 100%; }
+  .header-medical h5 {
+    color: #FFF;
+    padding-top: 16px;
+    padding-bottom: 16px; }
 
 /*# sourceMappingURL=style.css.map */

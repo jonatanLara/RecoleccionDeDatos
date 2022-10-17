@@ -1,133 +1,137 @@
-
-<?php include_once  'views/modules/session.php'; ?>
-<?php include_once  'views/modules/header.php'; ?>
+<header class="header-medical">
+  <div class="container">
+    <h5>Expediente Medico</h5>
+  </div>
+</header>
 <section>
-<div class="container">
-  <h4>Expediente medico</h4>
-  <div class="caja">
-    <div class="px-2">
-        <div class="mb-2 d-flex justify-content-around align-items-center">
-            <div class="d-flex align-items-center">
-              <div class="">
-                <img src="images/default-user-icon-8.jpg" style="padding: 10px;border-radius: 50%;" alt="" width="120">
+  <div class="container">
+    <div class="caja">
+      <div class="px-2">
+          <div class="mb-2 row align-items-center">
+              <div class="col-12 col-md-2 col d-flex align-items-center">
+                <div class="col-6 col-md-6">
+                  <img src="images/default-user-icon-8.jpg" style="padding: 10px; border-radius: 50%;" alt="" width="110">
+                </div>
+                <div class="col-6 col-md-6">
+                  <h6 class="px-2">Jonatan Jair Lara Ortiz</h6>
+                </div>
               </div>
+              <div class="col-6 col-md-2 color-rojo">
+                <strong>
+                  <div class="">
+                    <i class="fas fa-id-card "></i> NNS:
+                  </div>
+                  <div class="">
+                    <p>5179272785</p>
+                  </div>
+                </strong>
+              </div>
+              <div class="col-6 col-md-2 color-rojo">
+                <strong>
+                  <div class="">
+                    <i class="fas fa-birthday-cake"></i> EDAD
+                  </div>
+                  <div class="">
+                    <p>29</p>
+                  </div>
+                </strong>
+              </div>
+              <div class="col-6 col-md-2 color-rojo">
+                <strong>
+                  <div class="">
+                    <i class="fas fa-venus-mars"></i> Genero
+                  </div>
+                  <div class="">
+                    <p>Hombre</p>
+                  </div>
+                </strong>
+              </div>
+              <div class="col-6 col-md-2 color-rojo">
+                <strong>
+                  <div class="">
+                    <i class="fas fa-mobile"></i> Telefono
+                  </div>
+                  <div class="">
+                    <p>9811063423</p>
+                  </div>
+                </strong>
+              </div>
+              <div class="col-6 col-md-2 color-rojo">
+                <strong>
+                  <div class="">
+                    <i class="fas fa-map-marker-alt"></i> Ciudad
+                  </div>
+                  <div class="">
+                    <p>Campeche</p>
+                  </div>
+                </strong>
+              </div>
+          </div>
+        </div>
+        <br>
+        <div class="row" >
+          <div class="col-md-4">
+            <div >
               <div class="">
-                <h5>Jonatan Jair</h5>
-                <h5>Lara Ortiz</h5>
+                <h6 class="color-rojo">Contacto</h6>
+                <p>Contacto de emergencia: </p>
+                <p>Parentesco: </p>
+                <p>Dirección: </p>
               </div>
             </div>
-            <div class="">
+          </div>
+          <div class="col-md-4">
+            <div >
               <div class="">
-                <i class="fas fa-id-card"></i> DNS:
-              </div>
-              <div class="">
-                <p>99912899</p>
-              </div>
-            </div>
-            <div class="">
-              <div class="">
-                <i class="fas fa-birthday-cake"></i> EDAD
-              </div>
-              <div class="">
-                <p>29</p>
+                <h6 class="color-rojo"> Estutus social</h6>
+                <p>Estado civil: Soltero</p>
               </div>
             </div>
-            <div class="">
+          </div>
+          <div class="col-md-4">
+            <div >
               <div class="">
-                <i class="fas fa-venus-mars"></i> Genero
-              </div>
-              <div class="">
-                <p>Hombre</p>
-              </div>
-            </div>
-            <div class="">
-              <div class="">
-                <i class="fas fa-mobile"></i> Telefono
-              </div>
-              <div class="">
-                <p>9811063423</p>
+                <h6 class="color-rojo">Seguro</h6>
+                <p>Registro patronal: Y7028906100</p>
+                <p>Nombre o razón social: AZVINDI FERROVIARIO</p>
               </div>
             </div>
-            <div class="">
-              <div class="">
-                <i class="fas fa-map-marker-alt"></i> Ciudad
-              </div>
-              <div class="">
-                <p>Campeche</p>
-              </div>
-            </div>
+          </div>
+        </div>
+    </div>
+    <div class="row py-2">
+      <div class="col-xs-12 col-md-4 py-2">
+        <div >
+          <div class="caja" >
+            <h6 class="color-rojo align-items-center"><i class="fas fa-heartbeat"></i> Signos vitales</h6>
+            <p>Peso:</p>
+            <p>Altura:</p>
+            <p>Presión alteral: </p>
+            <p>Pulso: </p>
+          </div>
         </div>
       </div>
-      <br>
-      <div class="d-flex">
-        <div class="col-md-4">
-          <div style="padding-right: 10px;">
-            <div class="">
-              <h5 class="color-rojo">Contacto</h5>
-              <p>Peso:</p>
-              <p>Altura:</p>
-              <p>Presión alteral: </p>
-              <p>Pulso: </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div style="padding-right: 10px;">
-            <div class="">
-              <h5 class="color-rojo"><i class="far fa-file-medical-alt"></i> Estutus social</h5>
-              <p>Peso:</p>
-              <p>Altura:</p>
-              <p>Presión alteral: </p>
-              <p>Pulso: </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div style="padding-right: 10px;">
-            <div class="">
-              <h5 class="color-rojo"><i class="far fa-file-medical-alt"></i> Seguro</h5>
-              <p>Peso:</p>
-              <p>Altura:</p>
-              <p>Presión alteral: </p>
-              <p>Pulso: </p>
-            </div>
+      <div class="col-xs-12 col-md-4 py-2">
+        <div >
+          <div class="caja" >
+            <h6 class="color-rojo align-items-center"><i class="fas fa-briefcase-medical"></i> Problemas graves</h6>
+            <p>:</p>
+            <p>:</p>
+            <p>:</p>
           </div>
         </div>
       </div>
+      <div class="col-xs-12 col-md-4 py-2">
+        <div >
+          <div class="caja" >
+            <h6 class="color-rojo align-items-center"><i class="fas fa-notes-medical"></i> Historial medico</h6>
+            <p>Tipo de sangre:  <strong> O+</strong></p>
+            <p>Alergia: <strong>Ninguna</strong> </p>
+            <p>Cirujia: <strong>Ninguna</strong></p>
+            <p>x-rays:  <strong>Ninguna</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <br>
-  <div class="d-flex">
-    <div class="col-md-4">
-      <div style="padding-right: 10px;">
-        <div class="caja">
-          <h5 class="color-rojo"><i class="far fa-file-medical-alt"></i> Signos vitales</h5>
-          <p>Peso:</p>
-          <p>Altura:</p>
-          <p>Presión alteral: </p>
-          <p>Pulso: </p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div style="padding-right: 10px;padding-left: 10px;">
-        <div class="caja">
-          <h5 class="color-rojo"><i class="far fa-briefcase-medical"></i> Problemas graves</h5>
-          <p>:</p>
-          <p>:</p>
-          <p>:</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div style="padding-left: 10px;">
-        <div class="caja">
-          <h5 class="color-rojo"><i class="far fa-book-medical"></i> Historial medico</h5>
-          <p>Alergia:</p>
-          <p>Cirujia:</p>
-          <p>x-rays: </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 </section>
